@@ -38,7 +38,7 @@ function getPreparedGoods(
   }
 
   if (options.sortField === SORT_FIELD_RESET) {
-    preparedGoods = goods;
+    preparedGoods = [...goods];
   }
 
   if (options.isReversed) {
@@ -56,7 +56,7 @@ export const App: React.FC = () => {
     isReversed,
   }); // ?
 
-  const reversClick = () => {
+  const handleReverseClick = () => {
     setIsReversed(prevIsReversed => !prevIsReversed);
   };
 
@@ -89,7 +89,7 @@ export const App: React.FC = () => {
             'is-light': isReversed === false,
           })}
           onClick={() => {
-            reversClick();
+            handleReverseClick();
           }}
         >
           Reverse
